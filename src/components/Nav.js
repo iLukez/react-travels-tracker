@@ -5,16 +5,16 @@ const Nav = () => {
   return (
     <nav className='navbar'>
         <div className='nav-element'>
-            <Link to={'/'}>Travels List</Link>
+            <Link to={'/'} style={{textDecoration: 'none', color: 'rgb(20, 20, 200)'}}>Travels List</Link>
         </div>
         <div className='nav-element'>
-            <Link to={'/'}>Cars</Link>
+            <Link to={'/'} style={{textDecoration: 'none', color: 'rgb(20, 20, 200)'}}>Cars todo</Link>
         </div>
         <div className='nav-element'>
-            <Link to={'/'}>Expenses Details</Link>
+            <Link to={'/'} style={{textDecoration: 'none', color: 'rgb(20, 20, 200)'}}>Expenses Details todo</Link>
         </div>
         <div className='nav-element'>
-            <Link to={'/'}>Function</Link>
+            <Link to={'/'} style={{textDecoration: 'none', color: 'rgb(20, 20, 200)'}}>Function todo</Link>
         </div>
     </nav>
   )

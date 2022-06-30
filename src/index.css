@@ -12,7 +12,7 @@
     background-color: rgb(236, 236, 236);
     width: 900px;
     height: 100%;
-    min-width: 300px;
+    min-width: 150px;
     margin: 10px auto;
     border-radius: 10px;
     min-height: 300px;
@@ -25,12 +25,6 @@
     margin-left: 10px;
 }
 
-.title-link:link, .title-link:visited {
-    color: (internal value);
-    text-decoration: none;
-    cursor: auto;
-}
-
 .navbar {
     display: table;
     background-color: rgb(243, 243, 243);
@@ -39,6 +33,8 @@
     justify-content: center;
     align-items: stretch; 
     border-collapse: collapse;
+    text-decoration: inherit;
+    color: inherit;
 }
 
 .nav-element {
@@ -62,21 +58,35 @@
     align-items: center;
 }
 
-.travels {
+.travels-list {
     margin: 10px 5px 10px 5px;
     padding: 10px;
     min-height: 300px;
-    text-align: center;
     margin-bottom: 20px;
+}
+
+.travels-list h2 {
+    padding-bottom: 20px;
+}
+
+.travels {
+    text-align: center;
     display: flex;
-   flex-direction: column-reverse;
+    flex-direction: column-reverse;
 }
 
 .travel {
     text-align: left;
     padding: 10px;
     margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
     background-color: rgb(226, 226, 226);
+}
+
+.travel-cost {
+    padding: 5px;
+    color:rgb(233, 0, 0);
 }
 
 .travel-distance {
