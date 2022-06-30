@@ -2,12 +2,13 @@ import React from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Travels from "./components/Travels";
+import Nav from "./components/Nav";
 import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 function App() {
 
-  const [userData, setUserData] = useState({
+  const [user, setUser] = useState({
     name: 'Luca',
     surname: 'Donadel',
     age: 17
@@ -50,7 +51,8 @@ function App() {
   return (
     <Router>
       <div className="container">
-        <Header userData={userData}/>
+        <Header user={user}/>
+        <Nav />
         <Routes>
           <Route path="/" element={<Travels  travels={travels}/>} />
         </Routes>

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 * {
     box-sizing: border-box;
@@ -7,29 +8,58 @@
 }
 
 .container {
+    border: 1px gray solid;
     background-color: rgb(236, 236, 236);
     width: 900px;
     height: 100%;
-    min-width: 700px;
-    margin: auto;
+    min-width: 300px;
+    margin: 10px auto;
+    border-radius: 10px;
     min-height: 300px;
 }
 
 #app-name {
-    font-size: 2em;
-    font-weight:bolder;
-    padding-left: 10px;
+    font-family: 'Lobster', cursive;
+    font-size: 4em;
+    letter-spacing: 2px;
+    margin-left: 10px;
+}
+
+.title-link:link, .title-link:visited {
+    color: (internal value);
+    text-decoration: none;
+    cursor: auto;
+}
+
+.navbar {
+    display: table;
+    background-color: rgb(243, 243, 243);
+    width: 100%;
+    table-layout: fixed;
+    justify-content: center;
+    align-items: stretch; 
+    border-collapse: collapse;
+}
+
+.nav-element {
+    text-align: center;
+    display: table-cell;
+    align-items: center;
+    border: 1px solid grey;
+    cursor: pointer;
+    padding: 10px;
+    border-collapse: collapse;
 }
 
 .header {
     height: 60px;
-    padding: 10px;
+    border-radius: 10px;
+    padding: 40px 10px;
     display: flex;
     background-color: rgb(243, 243, 243);
     text-align: center;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
 }
 
 .travels {
@@ -49,7 +79,12 @@
     background-color: rgb(226, 226, 226);
 }
 
-.travel > h5 {
+.travel-distance {
+    margin: 10px 5px;
+    font-size: 22px;
+}
+
+.travel-positions {
     font-weight: normal;
 }
 
