@@ -8,7 +8,7 @@ const Nav = () => {
             <Link to={'/'} style={{textDecoration: 'none', color: 'rgb(20, 20, 200)'}}>Travels List</Link>
         </div>
         <div className='nav-element'>
-            <Link to={'/'} style={{textDecoration: 'none', color: 'rgb(20, 20, 200)'}}>Cars todo</Link>
+            <Link to={'/'} style={{textDecoration: 'none', color: 'rgb(20, 20, 200)'}}>My Cars todo</Link>
         </div>
         <div className='nav-element'>
             <Link to={'/'} style={{textDecoration: 'none', color: 'rgb(20, 20, 200)'}}>Expenses Details todo</Link>

@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Travels from "./components/Travels";
 import Nav from "./components/Nav";
+import Button from "./components/Button";
 import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
@@ -53,6 +54,7 @@ function App() {
       <div className="container">
         <Header user={user}/>
         <Nav />
+        <Button text='Add Travel' color='#5cc3f7'/>
         <Routes>
           <Route path="/" element={<Travels  travels={travels}/>} />
         </Routes>
