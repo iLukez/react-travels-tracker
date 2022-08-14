@@ -22,7 +22,7 @@ const Travel = ({travel, carsList, gasCostPerLiter}) => {
         <p className='travel-date'><b>Day:</b> <i>{travel.date}</i></p>
       </div>
       <div className='travel-cost'>
-        <h3>- {findTravelCost(travel.car, carsList, gasCostPerLiter, travel.distance)}€</h3>
+        <h3>- € {findTravelCost(travel.car, carsList, gasCostPerLiter, travel.distance)}</h3>
       </div>
     </div>
   )

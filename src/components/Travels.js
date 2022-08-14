@@ -21,7 +21,7 @@ const Travels = ({travels}) => {
       <h2>Travels List:</h2>
       <div className='travels'>
         {travels.map((travel) => (
-          <Travel key={travel.id} travel={travel} carsList={carsList} gasCostPerLiter={gasCostPerLiter} />
+          <Travel key={travel.key} travel={travel} carsList={carsList} gasCostPerLiter={gasCostPerLiter} />
         ))}
       </div>
     </div>

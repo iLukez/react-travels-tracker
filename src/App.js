@@ -15,9 +15,11 @@ function App() {
     age: 17
   });
 
+  const [addTravel, setAddTravel] = useState(false);
+
   const [travels, setTravels] = useState([
     {
-      id: 1,
+      key: 1,
       startingPoint: 'Sacile',
       endingPoint: 'Orsago',
       distance: 8.9,
@@ -25,7 +27,7 @@ function App() {
       date: '30th June 2022'
     },
     {
-      ite: 2,
+      key: 2,
       startingPoint: 'Orsago',
       endingPoint: 'Caneva',
       distance: 6.5,
@@ -33,7 +35,7 @@ function App() {
       date: '30th June 2022'
     },
     {
-      id: 3,
+      key: 3,
       startingPoint: 'Caneva',
       endingPoint: 'Sacile',
       distance: 6.6,
@@ -41,7 +43,7 @@ function App() {
       date: '30th June 2022'
     },
     {
-      id: 4,
+      key: 4,
       startingPoint: 'Sacile',
       endingPoint: 'Orsago',
       distance: 6.6,
@@ -49,12 +51,14 @@ function App() {
       date: '31th June 2022'
     }])
 
+  const changeAddState = (addTravel) => !addTravel
+
   return (
     <Router>
       <div className="container">
         <Header user={user}/>
         <Nav />
-        <Button text='Add Travel' color='#5cc3f7'/>
+        <Button text={addTravel ? '- Delete Current Task' : '+ Add New Travel'} color={addTravel ? '#db3535' :'#5cc3f7'} onAddTravel={() => setAddTravel(!addTravel)}/>
         <Routes>
           <Route path="/" element={<Travels  travels={travels}/>} />
         </Routes>
