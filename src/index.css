@@ -8,7 +8,6 @@
 }
 
 .container {
-    border: 1px gray solid;
     background-color: rgb(236, 236, 236);
     width: 900px;
     height: 100%;
@@ -131,12 +130,40 @@
     width: 95%;
 }
 
+.addTravelForm label{
+    font-weight: bolder;
+    font-size: 18px;
+}
+
 .addTravelForm  input{
-    padding: 5px;
+    padding: 7px;
+    width: 100%;
     font-size: 16px;
-    margin: 5px 0 10px 0;
-    border: 2px solid rgb(28, 28, 28);
+    margin: 5px 0 14px 0;
+    border: 1px solid rgb(28, 28, 28);
     border-radius: 8px;
+}
+
+.addTravelForm  #formDistanceTravelled {
+    width: 11%;
+}
+
+.addTravelForm  #formDate {
+    width: 18%;
+}
+
+.submitButton {
+    width: 96%;
+    height: 44px;
+    text-align: center;
+    margin: 10px 2%;
+    padding: 12px;
+    border: 1px solid rgb(156, 156, 156);
+    border-radius: 7px;
+    background-color: #5cc3f7;
+    padding: 12px;
+    font-size: 18px;
+    cursor: pointer;
 }
 
 body {
