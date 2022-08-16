@@ -121,6 +121,24 @@
     display: inline-block;
 }
 
+#addTravel {
+    width: 100%;
+    padding: 10px;
+}
+
+.addTravelForm {
+    margin: auto;
+    width: 95%;
+}
+
+.addTravelForm  input{
+    padding: 5px;
+    font-size: 16px;
+    margin: 5px 0 10px 0;
+    border: 2px solid rgb(28, 28, 28);
+    border-radius: 8px;
+}
+
 body {
     padding: 0px;
     margin: 0px;
