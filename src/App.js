@@ -16,7 +16,7 @@ function App() {
     age: 17
   });
 
-  const [addTravel, setAddTravel] = useState(false);
+  const [isAdding, setIsAdding] = useState(false);
 
   const [travels, setTravels] = useState(
     [
@@ -68,15 +68,51 @@ function App() {
     ]
   )
 
-  const changeAddState = (addTravel) => !addTravel
+  // Addition of the new travel provided by AddTravelForm
+
+  const addTravel = (newStartingPoint, newEndingPoint, newDistance, newCar, newDate) => {
+    // Generation of the travel's key
+
+    let newKey;
+
+    if (travels.length === 0) {
+      newKey = 1;
+    }
+    else {
+      newKey = travels.at(-1).key + 1;
+    }
+
+    // Capitalization of the car's name
+
+    newCar = newCar.toLowerCase().split(' ');
+
+    for(let i = 0; i < newCar.length; i++) {
+      newCar[i] = newCar[i].at(0).toUpperCase() + newCar[i].substring(1);
+    }
+
+    newCar = newCar.join(' ');
+
+    // Creation of the new travel object
+
+    const newTravel = {
+      key: newKey,
+      startingPoint: newStartingPoint,
+      endingPoint: newEndingPoint,
+      distance: newDistance,
+      car: newCar,
+      date: newDate
+    }
+
+    setTravels([...travels, newTravel]);
+  }
 
   return (
     <Router>
       <div className="container">
         <Header user={user}/>
         <Nav />
-        <Button text={addTravel ? '- Delete Current Travel' : '+ Add New Travel'} color={addTravel ? '#db3535' :'#5cc3f7'} onAddTravel={() => setAddTravel(!addTravel)}/>
-        {addTravel && <AddTravelForm />}
+        <Button text={isAdding ? '- Delete Current Travel' : '+ Add New Travel'} color={isAdding ? '#db3535' :'#5cc3f7'} onIsAdding={() => setIsAdding(!isAdding)}/>
+        {isAdding && <AddTravelForm addTravel={addTravel}/>}
         <Routes>
           <Route path="/" element={<Travels  travels={travels} carsList={carsList}/>} />
         </Routes>
