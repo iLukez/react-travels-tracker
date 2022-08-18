@@ -114,7 +114,7 @@ function App() {
         <Header user={user}/>
         <Nav />
         <Button text={isAdding ? '- Delete Current Travel' : '+ Add New Travel'} color={isAdding ? '#db3535' :'#5cc3f7'} onIsAdding={() => setIsAdding(!isAdding)}/>
-        {isAdding && <AddTravelForm addTravel={addTravel} carsList={carsList} />}
+        {isAdding && <AddTravelForm addTravel={addTravel} carsList={carsList} setIsAdding={() => setIsAdding(!isAdding)}/>}
         <Routes>
           <Route path="/" element={<Travels  travels={travels} carsList={carsList}/>} />
         </Routes>
