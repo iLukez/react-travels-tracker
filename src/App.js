@@ -58,10 +58,12 @@ function App() {
   const [carsList, setCarsList] = useState(
     [
       {
+        key: 1,
         carName: 'Opel Karl',
         kmToLiterRatio: 19.6  
       },
       {
+        key: 2,
         carName: 'Renault Clio',
         kmToLiterRatio: 14.7  
       }
@@ -112,7 +114,7 @@ function App() {
         <Header user={user}/>
         <Nav />
         <Button text={isAdding ? '- Delete Current Travel' : '+ Add New Travel'} color={isAdding ? '#db3535' :'#5cc3f7'} onIsAdding={() => setIsAdding(!isAdding)}/>
-        {isAdding && <AddTravelForm addTravel={addTravel}/>}
+        {isAdding && <AddTravelForm addTravel={addTravel} carsList={carsList} />}
         <Routes>
           <Route path="/" element={<Travels  travels={travels} carsList={carsList}/>} />
         </Routes>

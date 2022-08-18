@@ -152,6 +152,16 @@
     width: 18%;
 }
 
+.addTravelForm  #formCarUsed {
+    width: 18%;
+    padding: 7px;
+    width: 25%;
+    font-size: 16px;
+    margin: 5px 0 14px 0;
+    border: 1px solid rgb(28, 28, 28);
+    border-radius: 8px;
+}
+
 .submitButton {
     width: 96%;
     height: 44px;

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from "react";
 
-const AddTravelForm = ({addTravel}) => {
+const AddTravelForm = ({addTravel, carsList}) => {
 
   // States for the data of the new travel
 
@@ -40,7 +40,12 @@ const AddTravelForm = ({addTravel}) => {
             <label>Distance Travelled:</label><br />
             <input id='formDistanceTravelled' type='number' value={distance} onChange={(event) => setDistance(event.target.value)} /> Km<br />
             <label>Car Used:</label><br />
-            <input id='formCarUsed' type='text' value={car} onChange={(event) => setCar(event.target.value)} /><br />
+            <select id='formCarUsed' name='carUsed' defaultValue={car} onChange={(event) => setCar(event.target.value)}>
+              {carsList.map((car) => (
+                <option value={car.carName}>{car.carName}</option>
+              ))}
+            </select>  
+            <br />
             <label>Date:</label><br />
             <input id='formDate' type='date' value={date} onChange={(event) => setDate(event.target.value)} /><br />
             <button type='button' className='submitButton' onClick={() => onSubmit()}>&#10003; Submit</button>
