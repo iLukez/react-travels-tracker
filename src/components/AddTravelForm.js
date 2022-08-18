@@ -15,7 +15,7 @@ const AddTravelForm = ({addTravel, carsList, setIsAdding}) => {
 
   const onSubmit = () => {
     if (!from || !to || !distance || !car || !date) {
-      alert('Can\'t submit the Travel: missing informations');
+      alert('Can\'t submit the Travel due to missing informations');
       return;
     }
 
