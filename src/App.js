@@ -122,7 +122,7 @@ function App() {
               <Travels  travels={travels} carsList={carsList}/>
             </>
           }/>
-          <Route path='/cars' element={<Cars/>}/>
+          <Route path='/cars' element={<Cars carsList={carsList} travels={travels}/>}/>
         </Routes>
         <Footer />   
       </div>
