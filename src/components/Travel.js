@@ -7,6 +7,7 @@ const Travel = ({travel, carsList, gasCostPerLiter}) => {
       if (car === c.carName) {
         return true;
       }
+      return false;
     })
     const travelCost = (travelDistance / carUsed.kmToLiterRatio) * gasCostPerLiter;
 

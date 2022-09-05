@@ -1,6 +1,5 @@
 import React from 'react'
 import Travel from './Travel'
-import { useState } from 'react'
 import PropTypes from 'prop-types'
 
 const Travels = ({travels, carsList}) => {

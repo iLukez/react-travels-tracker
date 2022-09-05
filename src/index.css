@@ -185,16 +185,41 @@
 }
 
 .cars {
-    text-align: center;
     display: flex;
     flex-direction: column-reverse;
 }
 
 .car {
-    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    height: 150px;
+    position: relative;
     padding: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
+    border-radius: 10px;
     background-color: rgb(226, 226, 226);
+}
+
+.car-image {
+    width: 120px;
+    height: 120px;
+    object-fit:contain;
+    background-color: rgb(236, 236, 236);
+    border-radius: 10px;
+    flex-basis: auto;
+}
+
+#carDivisor {
+    border-left: solid 3px black;
+    flex-basis: auto;
+    height: 100%;
+}
+
+.car-info {
+    flex-basis: 83%;
+    height: 100%;
 }
 
 .car-name {
@@ -208,7 +233,9 @@
 }
 
 .car-key {
-    text-align: right;
+    position: absolute;
+    bottom: 10px;
+    right: 12px;
     color: rgb(183, 183, 183);
     font-size: 14px;
 }
