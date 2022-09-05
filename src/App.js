@@ -7,12 +7,13 @@ import AddTravelButton from "./components/AddTravelButton";
 import AddCarButton from "./components/AddCarButton";
 import AddTravelForm from "./components/AddTravelForm";
 import Cars from "./components/Cars";
-import { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { useState , useEffect} from "react";
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom'
 
 function App() {
 
   const [user, setUser] = useState({
+    id: 1,
     name: 'Luca',
     surname: 'Donadel',
     age: 17
@@ -110,36 +111,38 @@ function App() {
     setTravels([...travels, newTravel]);
   }
 
+  const location = useLocation();
+
+  useEffect(() => {
+    setIsAdding(false);
+  }, [location]);
+
   return (
-    <Router>
-      <div className="container">
-        <Header user={user}/>
-        <Nav />
-        <Routes>
-          <Route 
-            path="/" 
-            element={
-              <>
-                {() => setIsAdding(false)}
-                <AddTravelButton text={isAdding ? '- Delete Travel' : '+ Add New Travel'} color={isAdding ? '#db3535' :'#5cc3f7'} onIsAdding={() => setIsAdding(!isAdding)}/>
-                {isAdding && <AddTravelForm addTravel={addTravel} carsList={carsList} setIsAdding={() => setIsAdding(!isAdding)}/>}
-                <Travels  travels={travels} carsList={carsList}/>
-              </>
-            }
-          />
-          <Route path='/cars'
-            element={
-              <>
-                {() => setIsAdding(false)}
-                <AddCarButton text={isAdding ? '- Delete Car' : '+ Add New Car'} color={isAdding ? '#db3535' :'#5cc3f7'} onIsAdding={() => setIsAdding(!isAdding)}/>
-                <Cars carsList={carsList} travels={travels}/>
-              </>
-            }
-          />
-        </Routes>
-        <Footer />   
-      </div>
-    </Router>
+    <div className="container">
+      <Header user={user}/>
+      <Nav />
+      <Routes>
+        <Route 
+          path="/" 
+          element={
+            <>
+              <AddTravelButton text={isAdding ? '- Delete Travel' : '+ Add New Travel'} color={isAdding ? '#db3535' :'#5cc3f7'} onIsAdding={() => setIsAdding(!isAdding)}/>
+              {isAdding && <AddTravelForm addTravel={addTravel} carsList={carsList} setIsAdding={() => setIsAdding(!isAdding)}/>}
+              <Travels  travels={travels} carsList={carsList}/>
+            </>
+          }
+        />
+        <Route path='/cars'
+          element={
+            <>
+              <AddCarButton text={isAdding ? '- Delete Car' : '+ Add New Car'} color={isAdding ? '#db3535' :'#5cc3f7'} onIsAdding={() => setIsAdding(!isAdding)}/>
+              <Cars carsList={carsList} travels={travels}/>
+            </>
+          }
+        />
+      </Routes>
+      <Footer />   
+    </div>
   );
 }
 
