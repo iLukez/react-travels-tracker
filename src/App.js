@@ -3,7 +3,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Travels from "./components/Travels";
 import Nav from "./components/Nav";
-import Button from "./components/Button";
+import AddTravelButton from "./components/AddTravelButton";
+import AddCarButton from "./components/AddCarButton";
 import AddTravelForm from "./components/AddTravelForm";
 import Cars from "./components/Cars";
 import { useState } from "react";
@@ -115,14 +116,26 @@ function App() {
         <Header user={user}/>
         <Nav />
         <Routes>
-          <Route path="/" element={
-            <>
-              <Button text={isAdding ? '- Delete Current Travel' : '+ Add New Travel'} color={isAdding ? '#db3535' :'#5cc3f7'} onIsAdding={() => setIsAdding(!isAdding)}/>
-              {isAdding && <AddTravelForm addTravel={addTravel} carsList={carsList} setIsAdding={() => setIsAdding(!isAdding)}/>}
-              <Travels  travels={travels} carsList={carsList}/>
-            </>
-          }/>
-          <Route path='/cars' element={<Cars carsList={carsList} travels={travels}/>}/>
+          <Route 
+            path="/" 
+            element={
+              <>
+                {() => setIsAdding(false)}
+                <AddTravelButton text={isAdding ? '- Delete Travel' : '+ Add New Travel'} color={isAdding ? '#db3535' :'#5cc3f7'} onIsAdding={() => setIsAdding(!isAdding)}/>
+                {isAdding && <AddTravelForm addTravel={addTravel} carsList={carsList} setIsAdding={() => setIsAdding(!isAdding)}/>}
+                <Travels  travels={travels} carsList={carsList}/>
+              </>
+            }
+          />
+          <Route path='/cars'
+            element={
+              <>
+                {() => setIsAdding(false)}
+                <AddCarButton text={isAdding ? '- Delete Car' : '+ Add New Car'} color={isAdding ? '#db3535' :'#5cc3f7'} onIsAdding={() => setIsAdding(!isAdding)}/>
+                <Cars carsList={carsList} travels={travels}/>
+              </>
+            }
+          />
         </Routes>
         <Footer />   
       </div>

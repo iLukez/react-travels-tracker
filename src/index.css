@@ -39,7 +39,6 @@
     display: table-cell;
     align-items: center;
     border: 1px solid grey;
-    cursor: pointer;
     padding: 10px;
     border-collapse: collapse;
 }
@@ -100,7 +99,7 @@
     min-height: 100px;
 }
 
-#addTravelButton {
+.add-travel-button, .add-car-button {
     padding: 12px;
     width: 95%;
     margin: 20px 20px 5px 20px;
