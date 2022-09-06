@@ -116,22 +116,22 @@
     display: inline-block;
 }
 
-#addTravel {
+#addTravel, #addCar {
     width: 100%;
     padding: 10px;
 }
 
-.addTravelForm {
+.addTravelForm, .add-car-form {
     margin: auto;
     width: 95%;
 }
 
-.addTravelForm label{
+.addTravelForm label, .add-car-form label{
     font-weight: bolder;
     font-size: 18px;
 }
 
-.addTravelForm  input{
+.addTravelForm  input, .add-car-form input{
     padding: 7px;
     width: 100%;
     font-size: 16px;

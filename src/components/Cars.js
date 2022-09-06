@@ -7,7 +7,7 @@ const Cars = ({carsList, travels}) => {
       <h2>Your cars:</h2>
       <div className='cars'>
         {carsList.map((car) => (
-            <Car car={car} travels={travels}/>
+            <Car key={car.key} car={car} travels={travels}/>
         ))}
       </div>
     </div>

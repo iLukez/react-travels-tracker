@@ -4,11 +4,12 @@ import Footer from "./components/Footer";
 import Travels from "./components/Travels";
 import Nav from "./components/Nav";
 import AddTravelButton from "./components/AddTravelButton";
-import AddCarButton from "./components/AddCarButton";
 import AddTravelForm from "./components/AddTravelForm";
+import AddCarButton from "./components/AddCarButton";
+import AddCarForm from "./components/AddCarForm"
 import Cars from "./components/Cars";
 import { useState , useEffect} from "react";
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 
 function App() {
 
@@ -111,6 +112,41 @@ function App() {
     setTravels([...travels, newTravel]);
   }
 
+  // Addition of the new car provided by AddCarForm
+
+  const addCar = (carName, kmLRatio) => {
+    // Generation of the new car name
+
+    let newKey;
+
+    if (carsList.length === 0) {
+      newKey = 1;
+    }
+    else {
+      newKey = carsList.at(-1).key + 1;
+    }
+
+    // Capitalization of the car name
+
+    carName = carName.toLowerCase().split(' ');
+
+    for(let i = 0; i < carName.length; i++) {
+      carName[i] = carName[i].at(0).toUpperCase() + carName[i].substring(1);
+    }
+
+    carName = carName.join(' ');
+
+    // Creation of the new car object
+
+    const newCar = {
+      key: newKey,
+      carName: carName,
+      kmToLiterRatio: kmLRatio
+    }
+
+    setCarsList([...carsList, newCar])
+  }
+
   const location = useLocation();
 
   useEffect(() => {
@@ -136,6 +172,7 @@ function App() {
           element={
             <>
               <AddCarButton text={isAdding ? '- Delete Car' : '+ Add New Car'} color={isAdding ? '#db3535' :'#5cc3f7'} onIsAdding={() => setIsAdding(!isAdding)}/>
+              {isAdding && <AddCarForm addCar={addCar} setIsAdding={() => setIsAdding(!isAdding)}/>}
               <Cars carsList={carsList} travels={travels}/>
             </>
           }
