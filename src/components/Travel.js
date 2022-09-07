@@ -1,19 +1,7 @@
 import React from 'react'
 import RemoveButton from './RemoveTravelButton';
 
-const Travel = ({travel, carsList, gasCostPerLiter, removeTravel}) => {
-
-  function findTravelCost(car, carsList, gasCostPerLiter, travelDistance) {
-    const carUsed = carsList.find( (c) => {
-      if (car === c.carName) {
-        return true;
-      }
-      return false;
-    })
-    const travelCost = (travelDistance / carUsed.kmToLiterRatio) * gasCostPerLiter;
-
-    return travelCost.toFixed(2);
-  }
+const Travel = ({travel, removeTravel}) => {
 
   return (
     <div className='travel'>
@@ -25,7 +13,7 @@ const Travel = ({travel, carsList, gasCostPerLiter, removeTravel}) => {
       </div>
       <RemoveButton travel={travel} removeTravel={removeTravel}/>
       <div className='travel-cost'>
-        <h3>- € {findTravelCost(travel.car, carsList, gasCostPerLiter, travel.distance)}</h3>
+        <h3>- € {travel.cost}</h3>
       </div>
     </div>
   )

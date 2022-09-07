@@ -22,43 +22,7 @@ function App() {
   });
 
   const [isAdding, setIsAdding] = useState(false);
-
-  const [travels, setTravels] = useState(
-    [
-      {
-        key: 1,
-        startingPoint: 'Sacile',
-        endingPoint: 'Orsago',
-        distance: 8.9,
-        car: 'Opel Karl',
-        date: '30/06/2022'
-      },
-      {
-        key: 2,
-        startingPoint: 'Orsago',
-        endingPoint: 'Caneva',
-        distance: 6.5,
-        car: 'Opel Karl',
-        date: '30/06/2022'
-      },
-      {
-        key: 3,
-        startingPoint: 'Caneva',
-        endingPoint: 'Sacile',
-        distance: 6.6,
-        car: 'Opel Karl',
-        date: '30/06/2022'
-      },
-      {
-        key: 4,
-        startingPoint: 'Sacile',
-        endingPoint: 'Orsago',
-        distance: 6.6,
-        car: 'Renault Clio',
-        date: '31/06/2022'
-      }
-    ]
-  )
+  const [gasCostPerLiter, setGasCostPerLiter] = useState(2.01);
 
   const [carsList, setCarsList] = useState(
     [
@@ -71,6 +35,69 @@ function App() {
         key: 2,
         carName: 'Renault Clio',
         kmToLiterRatio: 14.7  
+      }
+    ]
+  )
+
+  const findTravelCost = (travel) => {
+    const carUsed = carsList.find( (c) => {
+      if (travel.car === c.carName) {
+        return true;
+      }
+      return false;
+    })
+    const travelCost = (travel.distance / carUsed.kmToLiterRatio) * gasCostPerLiter;
+    console.log(travelCost);
+
+    return travelCost.toFixed(2);
+  }
+
+  const [travels, setTravels] = useState(
+    // The cost is calculated and assigned here so that it stays the same even if the car is removed by the user
+    [
+      {
+        key: 1,
+        startingPoint: 'Sacile',
+        endingPoint: 'Orsago',
+        distance: 8.9,
+        car: 'Opel Karl',
+        date: '30/06/2022',
+        get cost() {
+          return findTravelCost(this);
+        }
+      },
+      {
+        key: 2,
+        startingPoint: 'Orsago',
+        endingPoint: 'Caneva',
+        distance: 6.5,
+        car: 'Opel Karl',
+        date: '30/06/2022',
+        get cost() {
+          return findTravelCost(this);
+        }
+      },
+      {
+        key: 3,
+        startingPoint: 'Caneva',
+        endingPoint: 'Sacile',
+        distance: 6.6,
+        car: 'Opel Karl',
+        date: '30/06/2022',
+        get cost() {
+          return findTravelCost(this);
+        }
+      },
+      {
+        key: 4,
+        startingPoint: 'Sacile',
+        endingPoint: 'Orsago',
+        distance: 6.6,
+        car: 'Renault Clio',
+        date: '31/06/2022',
+        get cost() {
+          return findTravelCost(this);
+        }
       }
     ]
   )
@@ -107,7 +134,10 @@ function App() {
       endingPoint: newEndingPoint,
       distance: newDistance,
       car: newCar,
-      date: newDate
+      date: newDate,
+      get cost() {
+        return findTravelCost(this);
+      }
     }
 
     setTravels([...travels, newTravel]);
@@ -181,13 +211,13 @@ function App() {
   }
 
   const location = useLocation();
-
   useEffect(() => {
     setIsAdding(false);
   }, [location]);
 
   return (
     <div className="container">
+      {console.log(travels)}
       <Header user={user}/>
       <Nav />
       <Routes>
@@ -197,7 +227,7 @@ function App() {
             <>
               <AddTravelButton isAdding={isAdding}  onIsAdding={() => setIsAdding(!isAdding)}/>
               {isAdding && <AddTravelForm addTravel={addTravel} carsList={carsList} setIsAdding={() => setIsAdding(!isAdding)}/>}
-              <Travels  travels={travels} carsList={carsList} removeTravel={removeTravel}/>
+              <Travels  travels={travels} carsList={carsList} gasCostPerLiter={gasCostPerLiter} removeTravel={removeTravel}/>
             </>
           }
         />

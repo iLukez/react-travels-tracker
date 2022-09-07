@@ -2,9 +2,7 @@ import React from 'react'
 import Travel from './Travel'
 import PropTypes from 'prop-types'
 
-const Travels = ({ travels, carsList, removeTravel }) => {
-  const gasCostPerLiter = 2.01;
-  
+const Travels = ({ travels, carsList, gasCostPerLiter, removeTravel }) => {
 
   return (
     <div className='travels-list'>
