@@ -117,7 +117,11 @@
     color: rgb(255, 255, 255);
     background-color: #ff3939;
     cursor: pointer;
+    transition-duration: 0.4s;
+}
 
+.remove-button:hover {
+    background-color: #e90707;
 }
 
 .footer {
@@ -126,7 +130,7 @@
     min-height: 100px;
 }
 
-.add-travel-button, .add-car-button {
+#addTravelButton, #addCarButton {
     padding: 12px;
     width: 95%;
     margin: auto;
@@ -135,6 +139,23 @@
     border-radius: 7px;
     font-size: 18px;
     cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.add-button {
+    background-color: #5cc3f7;
+}
+
+.delete-button {
+    background-color: #ff3939;
+}
+
+.add-button:hover {
+    background-color: #81d3fc;
+}
+
+.delete-button:hover {
+    background-color: hsl(0, 100%, 50%);
 }
 
 #userAvatar {
@@ -175,11 +196,16 @@
 
 .add-travel-form  #formDate {
     width: 10%;
-    min-width: 100px;
+    min-width: 140px;
 }
 
 .add-travel-form  #formCarUsed {
     width: 18%;
+    min-width: fit-content;
+}
+
+.add-car-form  #formKmL {
+    width: 10%;
     min-width: fit-content;
 }
 
@@ -195,6 +221,11 @@
     padding: 12px;
     font-size: 18px;
     cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.submit-button:hover {
+    background-color: #81d3fc;
 }
 
 .cars-list {

@@ -1,8 +1,15 @@
 import React from 'react'
 
-const Button = ({text, color, onIsAdding}) => {
+const Button = ({isAdding, onIsAdding}) => {
   return (
-    <button type='button' className='add-travel-button' style={{backgroundColor: color}} onClick={onIsAdding}> {text} </button>
+    <button 
+      type='button' 
+      id='addTravelButton' 
+      className={isAdding ? 'delete-button' : 'add-button'} 
+      onClick={onIsAdding}
+    > 
+      {isAdding ? '- Delete Travel' : '+ Add New Travel'} 
+    </button>
   )
 }
 

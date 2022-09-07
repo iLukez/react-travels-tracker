@@ -1,8 +1,15 @@
 import React from 'react'
 
-const addCarButton = ({text, color, onIsAdding}) => {
+const addCarButton = ({isAdding, onIsAdding}) => {
   return (
-    <button type='button' className='add-car-button' style={{backgroundColor: color}} onClick={onIsAdding}> {text} </button>
+    <button 
+      type='button' 
+      id='addCarButton' 
+      className={isAdding ? 'delete-button' : 'add-button'} 
+      onClick={onIsAdding}
+    >
+      {isAdding ? '- Delete Car' : '+ Add New Car'}
+    </button>
   )
 }
 

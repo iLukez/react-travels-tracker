@@ -195,7 +195,7 @@ function App() {
           path="/" 
           element={
             <>
-              <AddTravelButton text={isAdding ? '- Delete Travel' : '+ Add New Travel'} color={isAdding ? '#db3535' :'#5cc3f7'} onIsAdding={() => setIsAdding(!isAdding)}/>
+              <AddTravelButton isAdding={isAdding}  onIsAdding={() => setIsAdding(!isAdding)}/>
               {isAdding && <AddTravelForm addTravel={addTravel} carsList={carsList} setIsAdding={() => setIsAdding(!isAdding)}/>}
               <Travels  travels={travels} carsList={carsList} removeTravel={removeTravel}/>
             </>
@@ -204,7 +204,7 @@ function App() {
         <Route path='/cars'
           element={
             <>
-              <AddCarButton text={isAdding ? '- Delete Car' : '+ Add New Car'} color={isAdding ? '#db3535' :'#5cc3f7'} onIsAdding={() => setIsAdding(!isAdding)}/>
+              <AddCarButton isAdding={isAdding} onIsAdding={() => setIsAdding(!isAdding)}/>
               {isAdding && <AddCarForm addCar={addCar} setIsAdding={() => setIsAdding(!isAdding)}/>}
               <Cars carsList={carsList} removeCar={removeCar}/>
             </>
