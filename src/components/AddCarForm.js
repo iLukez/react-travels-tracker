@@ -33,7 +33,7 @@ const AddCarForm = ({addCar, setIsAdding}) => {
               <label>Km/l Ratio:</label><br />
               <input id='formKmL' type='number' value={kmLRatio} onChange={(e) => setKmLRatio(e.target.value)}/><br />
 
-              <button type='button' className='submitButton' onClick={() => onSubmit()}>&#10003; Submit</button>
+              <button type='button' className='submit-button' onClick={() => onSubmit()}>&#10003; Submit</button>
           </form>
       </div>
   )

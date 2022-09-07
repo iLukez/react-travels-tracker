@@ -34,7 +34,7 @@ const AddTravelForm = ({addTravel, carsList, setIsAdding}) => {
 
   return (
     <div id='addTravel'>
-        <form className='addTravelForm' >
+        <form className='add-travel-form'>
             <label>From:</label><br />
             <input id='formFrom' type='text' value={from} onChange={(event) => setFrom(event.target.value)} /><br />
 
@@ -55,7 +55,7 @@ const AddTravelForm = ({addTravel, carsList, setIsAdding}) => {
             <label>Date:</label><br />
             <input id='formDate' type='date' value={date} onChange={(event) => setDate(event.target.value)} /><br />
 
-            <button type='button' className='submitButton' onClick={() => onSubmit()}>&#10003; Submit</button>
+            <button type='button' className='submit-button' onClick={() => onSubmit()}>&#10003; Submit</button>
         </form>
     </div>
   )

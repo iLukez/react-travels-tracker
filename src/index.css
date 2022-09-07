@@ -5,11 +5,14 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
     background-color: rgb(236, 236, 236);
-    width: 900px;
+    width: 90%;
     height: 100%;
     margin: 10px auto;
     border-radius: 10px;
@@ -79,18 +82,21 @@
     background-color: rgb(226, 226, 226);
 }
 
+.travel-positions {
+    font-weight: normal;
+    font-size: 20px;
+    font-style: italic;
+}
+
 .travel-cost {
     padding: 5px;
+    font-size: 20px;
     color:rgb(233, 0, 0);
 }
 
 .travel-distance {
     margin: 10px 5px;
-    font-size: 22px;
-}
-
-.travel-positions {
-    font-weight: normal;
+    font-size: 26px;
 }
 
 .footer {
@@ -102,14 +108,15 @@
 .add-travel-button, .add-car-button {
     padding: 12px;
     width: 95%;
-    margin: 20px 20px 5px 20px;
+    margin: auto;
+    margin-top: 16px;
     border: 1px solid rgb(156, 156, 156);
     border-radius: 7px;
     font-size: 18px;
     cursor: pointer;
 }
 
-#user-avatar {
+#userAvatar {
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -121,17 +128,17 @@
     padding: 10px;
 }
 
-.addTravelForm, .add-car-form {
+.add-travel-form, .add-car-form {
     margin: auto;
     width: 95%;
 }
 
-.addTravelForm label, .add-car-form label{
+.add-travel-form label, .add-car-form label{
     font-weight: bolder;
     font-size: 18px;
 }
 
-.addTravelForm  input, .add-car-form input{
+.add-travel-form  input, .add-travel-form  select, .add-car-form input{
     padding: 7px;
     width: 100%;
     font-size: 16px;
@@ -140,29 +147,26 @@
     border-radius: 8px;
 }
 
-.addTravelForm  #formDistanceTravelled {
+.add-travel-form  #formDistanceTravelled {
     width: 11%;
+    min-width: 90px;
 }
 
-.addTravelForm  #formDate {
+.add-travel-form  #formDate {
+    width: 10%;
+    min-width: 100px;
+}
+
+.add-travel-form  #formCarUsed {
     width: 18%;
+    min-width: fit-content;
 }
 
-.addTravelForm  #formCarUsed {
-    width: 18%;
-    padding: 7px;
-    width: 25%;
-    font-size: 16px;
-    margin: 5px 0 14px 0;
-    border: 1px solid rgb(28, 28, 28);
-    border-radius: 8px;
-}
-
-.submitButton {
-    width: 96%;
+.submit-button {
+    width: 100%;
     height: 44px;
     text-align: center;
-    margin: 10px 2%;
+    margin-top: 10px;
     padding: 12px;
     border: 1px solid rgb(156, 156, 156);
     border-radius: 7px;
@@ -212,12 +216,13 @@
 
 #carDivisor {
     border-left: solid 3px black;
+    margin: 0 10px;
     flex-basis: auto;
     height: 100%;
 }
 
 .car-info {
-    flex-basis: 83%;
+    flex-basis: 100%;
     height: 100%;
 }
 
@@ -243,5 +248,5 @@ body {
     padding: 0px;
     margin: 0px;
     font-family: 'Rubik', sans-serif;
-    background-color: rgb(65, 65, 65);
+    background-color: rgb(41, 41, 41);
 }
