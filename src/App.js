@@ -152,8 +152,9 @@ function App() {
     setTravels(newTravels);
   }
 
-  const removeCar = () => {
-    
+  const removeCar = (key) => {
+    let newCarsList = carsList.filter((cars) => cars.key !== key)
+    setCarsList(newCarsList);
   }
 
   const location = useLocation();
@@ -182,7 +183,7 @@ function App() {
             <>
               <AddCarButton text={isAdding ? '- Delete Car' : '+ Add New Car'} color={isAdding ? '#db3535' :'#5cc3f7'} onIsAdding={() => setIsAdding(!isAdding)}/>
               {isAdding && <AddCarForm addCar={addCar} setIsAdding={() => setIsAdding(!isAdding)}/>}
-              <Cars carsList={carsList} travels={travels}/>
+              <Cars carsList={carsList} removeCar={removeCar}/>
             </>
           }
         />

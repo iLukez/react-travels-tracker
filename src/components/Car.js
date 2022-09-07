@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactImageFallback from "react-image-fallback";
+import RemoveCarButton from './RemoveCarButton.js';
 
-const Car = ({car, travels}) => {
+const Car = ({ car, removeCar }) => {
   return (
     <div className='car'>
         <ReactImageFallback
@@ -14,6 +15,7 @@ const Car = ({car, travels}) => {
         <div className='car-info'>
           <p className='car-name'>{car.carName}</p>
           <p className='car-ratio'>{car.kmToLiterRatio}</p> km/liter
+          <RemoveCarButton car={car} removeCar={removeCar}/>
           <div className='car-key'>{car.key}</div>
         </div>
     </div>

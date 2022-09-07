@@ -1,5 +1,5 @@
 import React from 'react'
-import RemoveButton from './RemoveButton';
+import RemoveButton from './RemoveTravelButton';
 
 const Travel = ({travel, carsList, gasCostPerLiter, removeTravel}) => {
 

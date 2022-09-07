@@ -106,6 +106,9 @@
 }
 
 .remove-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
     width: 30px;
     height: 30px;
     margin: 5px;
@@ -114,6 +117,7 @@
     border: 1.5px solid rgb(34, 34, 34);
     color: rgb(255, 255, 255);
     background-color: #ff3939;
+    cursor: pointer;
 
 }
 
