@@ -5,7 +5,6 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    overflow: hidden;
 }
 
 .container {
@@ -264,6 +263,22 @@
     right: 12px;
     color: rgb(183, 183, 183);
     font-size: 14px;
+}
+
+.swal-text {
+    background-color: rgb(255, 246, 174);
+    padding: 10px;
+    border: 2px solid rgb(251, 213, 116);
+    border-radius: 10px;
+    margin: 15px;
+}
+
+.swal-button {
+    font-family: 'Rubik', sans-serif;
+}
+
+.swal-button--confirm {
+    background-color: #5cc3f7;
 }
 
 body {

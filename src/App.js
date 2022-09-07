@@ -8,6 +8,7 @@ import AddTravelForm from "./components/AddTravelForm";
 import AddCarButton from "./components/AddCarButton";
 import AddCarForm from "./components/AddCarForm"
 import Cars from "./components/Cars";
+import swal from 'sweetalert';
 import { useState , useEffect} from "react";
 import { Route, Routes, useLocation } from 'react-router-dom'
 
@@ -148,13 +149,35 @@ function App() {
   }
 
   const removeTravel = (key) => {
-    let newTravels = travels.filter((travel) => travel.key !== key)
-    setTravels(newTravels);
+    swal({
+      title: "Are you sure you want to remove the travel?",
+      text: "Once deleted, you will not be able to recover it",
+      icon: "warning",
+      buttons: ['Cancel', 'Delete'],
+    })
+    .then((willDelete) => {
+      if (willDelete === true) {
+        let newTravels = travels.filter((travel) => travel.key !== key)
+        setTravels(newTravels);
+      };
+    })
+    
   }
 
   const removeCar = (key) => {
-    let newCarsList = carsList.filter((cars) => cars.key !== key)
-    setCarsList(newCarsList);
+    swal({
+      title: "Are you sure you want to remove the car?",
+      text: "Once deleted, you will not be able to recover it",
+      icon: "warning",
+      buttons: ['Cancel', 'Delete'],
+    })
+    .then((willDelete) => {
+      if (willDelete === true) {
+        let newCarsList = carsList.filter((cars) => cars.key !== key)
+        setCarsList(newCarsList);
+      }
+    })
+    
   }
 
   const location = useLocation();
