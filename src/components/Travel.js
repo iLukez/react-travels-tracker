@@ -1,6 +1,7 @@
 import React from 'react'
+import RemoveButton from './RemoveButton';
 
-const Travel = ({travel, carsList, gasCostPerLiter}) => {
+const Travel = ({travel, carsList, gasCostPerLiter, removeTravel}) => {
 
   function findTravelCost(car, carsList, gasCostPerLiter, travelDistance) {
     const carUsed = carsList.find( (c) => {
@@ -22,6 +23,7 @@ const Travel = ({travel, carsList, gasCostPerLiter}) => {
         <p className='travel-car'><b>Car:</b> {travel.car}</p>
         <p className='travel-date'><b>Day:</b> <i>{travel.date}</i></p>
       </div>
+      <RemoveButton travel={travel} removeTravel={removeTravel}/>
       <div className='travel-cost'>
         <h3>- € {findTravelCost(travel.car, carsList, gasCostPerLiter, travel.distance)}</h3>
       </div>

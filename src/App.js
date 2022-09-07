@@ -147,6 +147,15 @@ function App() {
     setCarsList([...carsList, newCar])
   }
 
+  const removeTravel = (key) => {
+    let newTravels = travels.filter((travel) => travel.key !== key)
+    setTravels(newTravels);
+  }
+
+  const removeCar = () => {
+    
+  }
+
   const location = useLocation();
 
   useEffect(() => {
@@ -164,7 +173,7 @@ function App() {
             <>
               <AddTravelButton text={isAdding ? '- Delete Travel' : '+ Add New Travel'} color={isAdding ? '#db3535' :'#5cc3f7'} onIsAdding={() => setIsAdding(!isAdding)}/>
               {isAdding && <AddTravelForm addTravel={addTravel} carsList={carsList} setIsAdding={() => setIsAdding(!isAdding)}/>}
-              <Travels  travels={travels} carsList={carsList}/>
+              <Travels  travels={travels} carsList={carsList} removeTravel={removeTravel}/>
             </>
           }
         />

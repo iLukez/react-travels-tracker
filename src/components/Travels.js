@@ -2,7 +2,7 @@ import React from 'react'
 import Travel from './Travel'
 import PropTypes from 'prop-types'
 
-const Travels = ({travels, carsList}) => {
+const Travels = ({ travels, carsList, removeTravel }) => {
   const gasCostPerLiter = 2.01;
   
 
@@ -11,7 +11,7 @@ const Travels = ({travels, carsList}) => {
       <h2>Travels List:</h2>
       <div className='travels'>
         {travels.map((travel) => (
-          <Travel key={travel.key} travel={travel} carsList={carsList} gasCostPerLiter={gasCostPerLiter} />
+          <Travel key={travel.key} travel={travel} carsList={carsList} gasCostPerLiter={gasCostPerLiter} removeTravel={removeTravel}/>
         ))}
       </div>
     </div>
