@@ -9,7 +9,12 @@ const Travels = ({ travels, carsList, gasCostPerLiter, removeTravel }) => {
       <h2>Travels List:</h2>
       <div className='travels'>
         {travels.map((travel) => (
-          <Travel key={travel.key} travel={travel} carsList={carsList} gasCostPerLiter={gasCostPerLiter} removeTravel={removeTravel}/>
+          <Travel key={travel.key}
+                  travel={travel}
+                  carsList={carsList}
+                  gasCostPerLiter={gasCostPerLiter}
+                  removeTravel={removeTravel}
+          />
         ))}
       </div>
     </div>
@@ -18,6 +23,9 @@ const Travels = ({ travels, carsList, gasCostPerLiter, removeTravel }) => {
 
 Travels.propTypes = {
   travels: PropTypes.array,
+  carsList: PropTypes.array,
+  gasCostPerLiter: PropTypes.number,
+  removeTravel: PropTypes.func
 }
 
 export default Travels

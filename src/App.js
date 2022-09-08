@@ -21,9 +21,6 @@ function App() {
     age: 17
   });
 
-  const [isAdding, setIsAdding] = useState(false);
-  const [gasCostPerLiter, setGasCostPerLiter] = useState(2.01);
-
   const [carsList, setCarsList] = useState(
     [
       {
@@ -46,8 +43,8 @@ function App() {
       }
       return false;
     })
+
     const travelCost = (travel.distance / carUsed.kmToLiterRatio) * gasCostPerLiter;
-    console.log(travelCost);
 
     return travelCost.toFixed(2);
   }
@@ -102,32 +99,37 @@ function App() {
     ]
   )
 
-  // Addition of the new travel provided by AddTravelForm
+  const [isAdding, setIsAdding] = useState(false);  // This variable indicates whether the add travel/car forms are active or not
+  const [gasCostPerLiter, setGasCostPerLiter] = useState(2.01);
+
+  const generateKey = (list) => {
+    // Generate a key to be used for a new element of a list
+    if (list.length === 0) {
+       return 1;
+    }
+    return list.at(-1).key + 1;
+  }
+
+  const capitalizeStrWords = (string) => {
+    // Capitalize each words of a string (separated by ' ')
+    string = string
+             .toLowerCase()
+             .split(' ');
+
+    for(let i = 0; i < string.length; i++) {
+      string[i] = string[i].at(0).toUpperCase() + string[i].substring(1);
+    }
+    string = string.join(' ');
+
+    return string;
+  }
 
   const addTravel = (newStartingPoint, newEndingPoint, newDistance, newCar, newDate) => {
-    // Generation of the travel's key
-
     let newKey;
 
-    if (travels.length === 0) {
-      newKey = 1;
-    }
-    else {
-      newKey = travels.at(-1).key + 1;
-    }
-
-    // Capitalization of the car's name
-
-    newCar = newCar.toLowerCase().split(' ');
-
-    for(let i = 0; i < newCar.length; i++) {
-      newCar[i] = newCar[i].at(0).toUpperCase() + newCar[i].substring(1);
-    }
-
-    newCar = newCar.join(' ');
-
-    // Creation of the new travel object
-
+    newKey = generateKey(travels);
+    newCar = capitalizeStrWords(newCar);
+    
     const newTravel = {
       key: newKey,
       startingPoint: newStartingPoint,
@@ -143,31 +145,11 @@ function App() {
     setTravels([...travels, newTravel]);
   }
 
-  // Addition of the new car provided by AddCarForm
-
   const addCar = (carName, kmLRatio) => {
-    // Generation of the new car name
-
     let newKey;
 
-    if (carsList.length === 0) {
-      newKey = 1;
-    }
-    else {
-      newKey = carsList.at(-1).key + 1;
-    }
-
-    // Capitalization of the car name
-
-    carName = carName.toLowerCase().split(' ');
-
-    for(let i = 0; i < carName.length; i++) {
-      carName[i] = carName[i].at(0).toUpperCase() + carName[i].substring(1);
-    }
-
-    carName = carName.join(' ');
-
-    // Creation of the new car object
+    newKey = generateKey(carsList);
+    carName = capitalizeStrWords(carName);
 
     const newCar = {
       key: newKey,
@@ -201,15 +183,15 @@ function App() {
       icon: "warning",
       buttons: ['Cancel', 'Delete'],
     })
-    .then((willDelete) => {
-      if (willDelete === true) {
-        let newCarsList = carsList.filter((cars) => cars.key !== key)
-        setCarsList(newCarsList);
-      }
-    })
-    
+      .then((willDelete) => {
+        if (willDelete === true) {
+          let newCarsList = carsList.filter((cars) => cars.key !== key)
+          setCarsList(newCarsList);
+        }
+      })
   }
 
+  // Used to close the form on Route change
   const location = useLocation();
   useEffect(() => {
     setIsAdding(false);
@@ -217,7 +199,6 @@ function App() {
 
   return (
     <div className="container">
-      {console.log(travels)}
       <Header user={user}/>
       <Nav />
       <Routes>
@@ -225,8 +206,8 @@ function App() {
           path="/" 
           element={
             <>
-              <AddTravelButton isAdding={isAdding}  onIsAdding={() => setIsAdding(!isAdding)}/>
-              {isAdding && <AddTravelForm addTravel={addTravel} carsList={carsList} setIsAdding={() => setIsAdding(!isAdding)}/>}
+              <AddTravelButton isAdding={isAdding}  invertIsAdding={() => setIsAdding(!isAdding)}/>
+              {isAdding && <AddTravelForm addTravel={addTravel} carsList={carsList} invertIsAdding={() => setIsAdding(!isAdding)}/>}
               <Travels  travels={travels} carsList={carsList} gasCostPerLiter={gasCostPerLiter} removeTravel={removeTravel}/>
             </>
           }
@@ -234,7 +215,7 @@ function App() {
         <Route path='/cars'
           element={
             <>
-              <AddCarButton isAdding={isAdding} onIsAdding={() => setIsAdding(!isAdding)}/>
+              <AddCarButton isAdding={isAdding} invertIsAdding={() => setIsAdding(!isAdding)}/>
               {isAdding && <AddCarForm addCar={addCar} setIsAdding={() => setIsAdding(!isAdding)}/>}
               <Cars carsList={carsList} removeCar={removeCar}/>
             </>

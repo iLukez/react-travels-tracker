@@ -33,16 +33,21 @@
     align-items: stretch; 
     border-collapse: collapse;
     text-decoration: inherit;
-    color: inherit;
 }
 
 .nav-element {
     text-align: center;
     display: table-cell;
-    align-items: center;
+    color:rgb(68, 0, 255);
     border: 1px solid grey;
-    padding: 10px;
+    padding: 12px;
     border-collapse: collapse;
+    transition-duration: 0.3s;
+}
+
+.nav-element:hover {
+    background-color: #5cc3f7;
+    color: black;
 }
 
 .header {
@@ -266,7 +271,7 @@
     flex-basis: auto;
 }
 
-#carDivisor {
+.car-divisor {
     border-left: solid 3px black;
     margin: 0 10px;
     flex-basis: auto;
