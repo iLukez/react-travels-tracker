@@ -16,6 +16,10 @@ const AddTravelForm = ({ addTravel, carsList, invertIsAdding }) => {
       alert('Can\'t submit the Travel due to missing informations');
       return;
     }
+    else if (distance <= 0) {
+      alert('Can\'t submit the Travel due to invalid Distance value');
+      return;
+    }
 
     addTravel(from, to, distance, car, date);
 

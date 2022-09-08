@@ -216,7 +216,7 @@ function App() {
           element={
             <>
               <AddCarButton isAdding={isAdding} invertIsAdding={() => setIsAdding(!isAdding)}/>
-              {isAdding && <AddCarForm addCar={addCar} setIsAdding={() => setIsAdding(!isAdding)}/>}
+              {isAdding && <AddCarForm addCar={addCar} invertIsAdding={() => setIsAdding(!isAdding)}/>}
               <Cars carsList={carsList} removeCar={removeCar}/>
             </>
           }
