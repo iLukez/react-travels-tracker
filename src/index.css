@@ -7,6 +7,10 @@
     padding: 0;
 }
 
+a {
+    text-decoration: none;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -17,8 +21,9 @@
     border-radius: 10px;
 }
 
-#app-name {
+#appName {
     font-family: 'Lobster', cursive;
+    color: black;
     font-size: 4em;
     letter-spacing: 2px;
     margin-left: 10px;
@@ -39,7 +44,7 @@
     text-align: center;
     display: table-cell;
     color:rgb(68, 0, 255);
-    border: 1px solid grey;
+    border: 0.5px solid grey;
     padding: 12px;
     border-collapse: collapse;
     transition-duration: 0.3s;

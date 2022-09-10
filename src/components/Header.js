@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 export const Header = ({ user }) => {
   return (
     <div className="header">
-      <h2 id='app-name'>Travels</h2>
+      <a href='./'><h2 id='appName'>Travels</h2></a>
       <div className="user-data">
         <img id='userAvatar' 
              src='/images/avatar.png' 
