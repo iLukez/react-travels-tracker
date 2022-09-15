@@ -1,14 +1,12 @@
 import React from 'react'
-import ReactImageFallback from "react-image-fallback";
 import RemoveCarButton from './RemoveCarButton.js';
 import PropTypes from 'prop-types';
 
 const Car = ({ car, removeCar }) => {
   return (
     <div className='car'>
-      <ReactImageFallback
-        src={'/images/' + car.carName + '.jpg'}
-        fallbackImage={'/images/' + car.carName + '.png'}
+      <img
+        src={car.image}
         alt={'Picture of a ' + car.carName}
         className="car-image" 
       />

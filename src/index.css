@@ -195,7 +195,7 @@ a {
     width: 100%;
     font-size: 16px;
     margin: 5px 0 14px 0;
-    border: 1px solid rgb(28, 28, 28);
+    border: 1.5px solid rgb(28, 28, 28);
     border-radius: 8px;
 }
 
@@ -219,13 +219,25 @@ a {
     min-width: fit-content;
 }
 
+.add-car-form #loadFile {
+    color: grey;
+    text-align: left;
+    background-color: white;
+    min-width: fit-content;
+    width: 25%;
+}
+
+.add-car-form #loadFile:hover {
+    cursor: pointer;
+}
+
 .submit-button {
     width: 100%;
     height: 44px;
     text-align: center;
     margin-top: 10px;
     padding: 12px;
-    border: 1px solid rgb(156, 156, 156);
+    border: 1.5px solid rgb(156, 156, 156);
     border-radius: 7px;
     background-color: #5cc3f7;
     padding: 12px;

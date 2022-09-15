@@ -7,6 +7,7 @@ const AddCarForm = ({ addCar, invertIsAdding }) => {
   // States for the datas of the new car
   const [carName, setCarName] = useState('');
   const [kmLRatio, setKmLRatio] = useState('');
+  const [image, setImage] = useState('');
 
   const onSubmit = () => {
       if (carName === '' || kmLRatio === '') {
@@ -18,13 +19,23 @@ const AddCarForm = ({ addCar, invertIsAdding }) => {
           return;
       }
 
-      addCar(carName, kmLRatio);
+      addCar(carName, kmLRatio, image);
 
+      setImage('')
       setCarName('');
       setKmLRatio('');
 
       invertIsAdding();
       return;
+  }
+
+  const updateImageSrc = (picture) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+        setImage(reader.result);
+    };
+    reader.readAsDataURL(picture);
+
   }
 
   return (
@@ -43,6 +54,19 @@ const AddCarForm = ({ addCar, invertIsAdding }) => {
                    value={kmLRatio}
                    onChange={(e) => setKmLRatio(e.target.value)}
             /><br />
+
+            <label>Picture of the car:</label>
+            {/* 
+                The button is shown to the users and clicks performed on it will be passed to the file input.
+                This was done to permit file input styling.
+            */}
+            <br />
+            <input type='button' defaultValue='&#8593; Upload a file' id="loadFile" onClick={() => document.getElementById('formImage').click()}/>
+            <input id='formImage'
+                   type='file'
+                   style={{display: 'none'}}
+                   accept='image/png, image/jpeg, image/jpg'
+                   onChange={(e) => updateImageSrc(e.target.files[0])}/>
 
             <button type='button'
                     className='submit-button'

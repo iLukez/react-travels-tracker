@@ -26,12 +26,18 @@ function App() {
       {
         key: 1,
         carName: 'Opel Karl',
-        kmToLiterRatio: 19.6  
+        kmToLiterRatio: 19.6,
+        get image() {
+          return `/images/${this.carName}.jpg`;
+        }
       },
       {
         key: 2,
         carName: 'Renault Clio',
-        kmToLiterRatio: 14.7  
+        kmToLiterRatio: 14.7,
+        get image() {
+          return `/images/${this.carName}.jpg`;
+        }
       }
     ]
   )
@@ -145,7 +151,7 @@ function App() {
     setTravels([...travels, newTravel]);
   }
 
-  const addCar = (carName, kmLRatio) => {
+  const addCar = (carName, kmLRatio, image) => {
     let newKey;
 
     newKey = generateKey(carsList);
@@ -154,7 +160,8 @@ function App() {
     const newCar = {
       key: newKey,
       carName: carName,
-      kmToLiterRatio: kmLRatio
+      kmToLiterRatio: kmLRatio,
+      image: image
     }
 
     setCarsList([...carsList, newCar])
