@@ -45,7 +45,7 @@ a {
     display: table-cell;
     text-decoration: none;
     color: rgb(20, 20, 200);
-    color:rgb(68, 0, 255);
+    color: rgb(68, 0, 255);
     padding: 12px;
     border-collapse: collapse;
     transition-duration: 0.3s;
@@ -326,6 +326,10 @@ a {
 .car-ratio {
     margin-top: 10px;
     font-size: 22px;
+}
+
+.car-travels-number {
+    color: #0084c5;
 }
 
 .car-key {

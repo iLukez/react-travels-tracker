@@ -27,6 +27,7 @@ function App() {
         key: 1,
         carName: 'Opel Karl',
         kmToLiterRatio: 19.6,
+        travelsDone: 3,
         get image() {
           return `/images/${this.carName}.jpg`;
         }
@@ -35,6 +36,7 @@ function App() {
         key: 2,
         carName: 'Renault Clio',
         kmToLiterRatio: 14.7,
+        travelsDone: 1,
         get image() {
           return `/images/${this.carName}.jpg`;
         }
@@ -130,11 +132,25 @@ function App() {
     return string;
   }
 
+  const updateCarTravelsDone = (carName, quantity) => {
+    let newCarsList = carsList;
+
+    for (let i = 0; i < newCarsList.length; i++) {
+      if (newCarsList[i].carName === carName) {
+        newCarsList[i].travelsDone += quantity;
+        break;
+      }
+    }
+    setCarsList(newCarsList);
+  }
+
   const addTravel = (newStartingPoint, newEndingPoint, newDistance, newCar, newDate) => {
     let newKey;
 
     newKey = generateKey(travels);
     newCar = capitalizeStrWords(newCar);
+
+    updateCarTravelsDone(newCar, +1);
     
     const newTravel = {
       key: newKey,
@@ -161,6 +177,7 @@ function App() {
       key: newKey,
       carName: carName,
       kmToLiterRatio: kmLRatio,
+      travelsDone: 0,
       image: image
     }
 
@@ -168,6 +185,7 @@ function App() {
   }
 
   const removeTravel = (key) => {
+    let deletedTravelCarName;
     swal({
       title: "Are you sure you want to remove the travel?",
       text: "Once deleted, you will not be able to recover it",
@@ -175,12 +193,17 @@ function App() {
       buttons: ['Cancel', 'Delete'],
     })
     .then((willDelete) => {
-      if (willDelete === true) {
-        let newTravels = travels.filter((travel) => travel.key !== key)
+      if (willDelete) {
+        let newTravels = travels.filter((travel) => {
+          if (travel.key === key) {
+            deletedTravelCarName = travel.car;
+          }
+          return travel.key !== key
+        })
         setTravels(newTravels);
+        updateCarTravelsDone(deletedTravelCarName, -1);
       };
     })
-    
   }
 
   const removeCar = (key) => {

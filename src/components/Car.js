@@ -16,6 +16,7 @@ const Car = ({ car, removeCar }) => {
       <div className='car-info'>
         <p className='car-name'>{car.carName}</p>
         <p className='car-ratio'>{car.kmToLiterRatio}</p> km/liter
+        <p className='car-travels'>Travels done: <span className='car-travels-number'>{car.travelsDone}</span></p>
         <RemoveCarButton car={car} removeCar={removeCar}/>
         <div className='car-key'>{car.key}</div>
       </div>
