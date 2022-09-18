@@ -43,8 +43,9 @@ a {
 .nav-element {
     text-align: center;
     display: table-cell;
+    text-decoration: none;
+    color: rgb(20, 20, 200);
     color:rgb(68, 0, 255);
-    border: 0.5px solid grey;
     padding: 12px;
     border-collapse: collapse;
     transition-duration: 0.3s;
@@ -137,9 +138,12 @@ a {
 }
 
 .footer {
+    line-height: 22px;
     padding: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
     text-align: center;
-    min-height: 100px;
+    min-height: fit-content;
 }
 
 #addTravelButton, #addCarButton {
