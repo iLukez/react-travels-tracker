@@ -38,6 +38,15 @@ const AddCarForm = ({ addCar, invertIsAdding }) => {
 
   }
 
+  const displayFileName = (fileName) => {
+    const fileNameSpan = document.querySelector('#fileName');
+    if (fileName) {
+        fileNameSpan.innerHTML = fileName;
+    } else {
+        fileNameSpan.innerHTML = 'No file';
+    }
+  }
+
   return (
     <div id='addCar'>
         <form className='add-car-form'>
@@ -61,12 +70,20 @@ const AddCarForm = ({ addCar, invertIsAdding }) => {
                 This was done to permit file input styling.
             */}
             <br />
-            <input type='button' defaultValue='&#8593; Upload a file' id="loadFile" onClick={() => document.getElementById('formImage').click()}/>
+            <input type='button'
+                   defaultValue='Upload a file'
+                   id="loadFile"
+                   onClick={() => document.getElementById('formImage').click()}
+            />
+            <span id='fileName'>No file</span>
             <input id='formImage'
                    type='file'
                    style={{display: 'none'}}
                    accept='image/png, image/jpeg, image/jpg'
-                   onChange={(e) => updateImageSrc(e.target.files[0])}/>
+                   onChange={(e) => {
+                      updateImageSrc(e.target.files[0]);
+                      displayFileName(e.target.files[0].name);
+                    }}/>
 
             <button type='button'
                     className='submit-button'

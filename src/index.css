@@ -123,7 +123,7 @@ a {
     margin: 5px;
     border: 0;
     border-radius: 10px;
-    border: 1.5px solid rgb(34, 34, 34);
+    border: 2px solid black;
     color: rgb(255, 255, 255);
     background-color: #ff3939;
     cursor: pointer;
@@ -131,7 +131,9 @@ a {
 }
 
 .remove-button:hover {
-    background-color: #e90707;
+    background-color: white;
+    color: #ff3939;
+    border: 2px solid #ff3939;
 }
 
 .footer {
@@ -145,7 +147,7 @@ a {
     width: 95%;
     margin: auto;
     margin-top: 16px;
-    border: 1px solid rgb(156, 156, 156);
+    border: 1.5px solid rgb(198, 198, 198);
     border-radius: 7px;
     font-size: 18px;
     cursor: pointer;
@@ -161,7 +163,7 @@ a {
 }
 
 .add-button:hover {
-    background-color: #81d3fc;
+    background-color: #18b2ff;
 }
 
 .delete-button:hover {
@@ -194,9 +196,10 @@ a {
     padding: 7px;
     width: 100%;
     font-size: 16px;
-    margin: 5px 0 14px 0;
-    border: 1.5px solid rgb(28, 28, 28);
-    border-radius: 8px;
+    margin: 7px 0 14px 0;
+    border: 1.5px solid rgb(198, 198, 198);
+    border-radius: 3px;
+    transition-duration: 0.3s;
 }
 
 .add-travel-form  #formDistanceTravelled {
@@ -219,16 +222,27 @@ a {
     min-width: fit-content;
 }
 
+#fileName {
+    padding: 12px;
+    color: rgb(155, 155, 155);
+}
+
 .add-car-form #loadFile {
-    color: grey;
-    text-align: left;
-    background-color: white;
+    color: white;
+    border: none;
+    text-align: center;
+    background-color: #5cc3f7;
+    border: 1.5px solid #5cc3f7;
     min-width: fit-content;
-    width: 25%;
+    width: 160px;
+    padding: 12px;
 }
 
 .add-car-form #loadFile:hover {
     cursor: pointer;
+    border: 1.5px solid #5cc3f7;
+    background-color: white;
+    color: #5cc3f7;
 }
 
 .submit-button {
@@ -237,7 +251,7 @@ a {
     text-align: center;
     margin-top: 10px;
     padding: 12px;
-    border: 1.5px solid rgb(156, 156, 156);
+    border: 1.5px solid rgb(198, 198, 198);
     border-radius: 7px;
     background-color: #5cc3f7;
     padding: 12px;
@@ -247,7 +261,7 @@ a {
 }
 
 .submit-button:hover {
-    background-color: #81d3fc;
+    background-color: #18b2ff;
 }
 
 .cars-list {
