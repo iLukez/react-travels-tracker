@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Nav = () => {
   return (
     <nav className='navbar'>
-        <Link to={'/'}  className='nav-element' style={{borderRight: '2px solid rgb(226, 226, 226)'}}>
+        <Link to={'/travels'}  className='nav-element' style={{borderRight: '2px solid rgb(226, 226, 226)'}}>
             <strong>Travels List</strong>
         </Link>
 

@@ -44,8 +44,7 @@ a {
     text-align: center;
     display: table-cell;
     text-decoration: none;
-    color: rgb(20, 20, 200);
-    color: rgb(68, 0, 255);
+    color: #179ee1;
     padding: 12px;
     border-collapse: collapse;
     transition-duration: 0.3s;
@@ -65,6 +64,46 @@ a {
     text-align: center;
     justify-content: space-between;
     align-items: center;
+}
+
+.user-data {
+    position: relative;
+    display: inline-block;
+}
+
+#dropdownContent {
+    text-align: center;
+    min-width: fit-content;
+    display: none;
+    position: absolute;
+    right: -10px;
+    background-color: #5cc3f7;
+    box-shadow: 4px 4px 10px -4px rgb(127, 127, 127);
+    text-decoration: none;
+    border-radius: 10px 0 0 10px;
+    
+}
+
+#login, #login:link, #login:visited, #logout, #logout:link, #logout:visited {
+    color: white;
+}
+
+#dropdownContent #logout, #dropdownContent #login {
+    display: inline-block;
+    min-width: 150px;
+    padding: 10px;
+    border-radius: 10px 0 0 10px;
+    transition-duration: 0.3s;
+    border: 1.5px solid #5cc3f7;
+}
+
+#dropdownContent #login:hover, #dropdownContent #logout:hover {
+    background-color: rgb(255, 255, 255);
+    color: #5cc3f7;
+}
+
+.user-data:hover #dropdownContent {
+    display: block;
 }
 
 .travels-list {

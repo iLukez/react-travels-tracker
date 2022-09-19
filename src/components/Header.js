@@ -1,23 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import User from './User'
 
-export const Header = ({ user }) => {
+export const Header = ({ user, logout }) => {
   return (
     <div className="header">
       <a href='./'><h2 id='appName'>Travels</h2></a>
-      <div className="user-data">
-        <img id='userAvatar' 
-             src='/images/avatar.png' 
-             alt='User avatar'
-        />
-        <p style={{fontSize: '13px'}}>{user.name} {user.surname}</p>
-      </div>
+      <User user={user} logout={logout}/>
     </div>
   )
 }
 
 Header.propTypes = {
-  user: PropTypes.object
+  user: PropTypes.object,
+  logout: PropTypes.func
 }
 
 export default Header
