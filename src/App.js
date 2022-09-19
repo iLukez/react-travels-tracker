@@ -11,14 +11,14 @@ import Cars from "./components/Cars";
 import swal from 'sweetalert';
 import { useState , useEffect} from "react";
 import { Route, Routes, useLocation } from 'react-router-dom'
+import { Navigate } from "react-router-dom";
 
 function App() {
 
   const [user, setUser] = useState({
-    id: 1,
+    key: 1,
     name: 'Luca',
-    surname: 'Donadel',
-    age: 17
+    surname: 'Donadel'
   });
 
   const [carsList, setCarsList] = useState(
@@ -108,7 +108,7 @@ function App() {
   )
 
   const [isAdding, setIsAdding] = useState(false);  // This variable indicates whether the add travel/car forms are active or not
-  const [gasCostPerLiter, setGasCostPerLiter] = useState(2.01);
+  const [gasCostPerLiter] = useState(1.75);
 
   const generateKey = (list) => {
     // Generate a key to be used for a new element of a list
@@ -221,6 +221,15 @@ function App() {
       })
   }
 
+  const logout = () => {
+    const newUser = {
+      key: 0,
+      name: '',
+      surname: ''
+    }
+    setUser(newUser);
+  }
+
   // Used to close the form on Route change
   const location = useLocation();
   useEffect(() => {
@@ -229,11 +238,14 @@ function App() {
 
   return (
     <div className="container">
-      <Header user={user}/>
+    <Routes>
+      <Route path='/' element={user.name === '' && user.surname === '' ? <Navigate to="/login"/> : <Navigate to="/travels"/>}/>
+    </Routes>
+      <Header user={user} logout={logout}/>
       <Nav />
       <Routes>
         <Route 
-          path="/" 
+          path="/travels" 
           element={
             <>
               <AddTravelButton isAdding={isAdding}  invertIsAdding={() => setIsAdding(!isAdding)}/>
